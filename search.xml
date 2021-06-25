@@ -22,11 +22,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>hexo基础使用</title>
     <url>/2021/06/24/hexo%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -42,6 +37,22 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo使用技巧以及发现的问题总结</title>
+    <url>/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/</url>
+    <content><![CDATA[<h5 id="执行hexo-deploy部署代码时没有把新代码提交上去"><a href="#执行hexo-deploy部署代码时没有把新代码提交上去" class="headerlink" title="执行hexo deploy部署代码时没有把新代码提交上去"></a>执行hexo deploy部署代码时没有把新代码提交上去</h5><p><img src="../images/hexo1.png" alt="未成功"></p>
+<ul>
+<li>解决办法<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">先执行 hexo clean  </span><br><span class="line">然后再执行hexo generate </span><br><span class="line">最后执行 hexo deploy</span><br><span class="line">如果嫌麻烦的话，可以再package.json中添加命令  &quot;deploy&quot;: &quot;hexo clean&amp;hexo generate&amp;hexo deploy&quot;</span><br></pre></td></tr></table></figure>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4></li>
+</ul>
 ]]></content>
       <categories>
         <category>技术</category>

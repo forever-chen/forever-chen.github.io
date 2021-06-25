@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-25T02:51:30.292Z</updated>
+  <updated>2021-06-25T02:59:41.333Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,15 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>hexo使用技巧以及发现的问题总结</title>
     <link href="http://example.com/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/"/>
     <id>http://example.com/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/</id>
     <published>2021-06-25T02:50:58.965Z</published>
-    <updated>2021-06-25T02:51:30.292Z</updated>
+    <updated>2021-06-25T02:59:41.333Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h5 id=&quot;执行hexo-deploy部署代码时没有把新代码提交上去&quot;&gt;&lt;a href=&quot;#执行hexo-deploy部署代码时没有把新代码提交上去&quot; class=&quot;headerlink&quot; title=&quot;执行hexo</summary>
+        
+      
     
     
     
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
     
   </entry>
   

@@ -152,16 +152,36 @@
   data-scroll-reveal
 >
   <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/"
+    >hexo使用技巧以及发现的问题总结</a> 
+</h2>
+ 
+
+      
+    </header>
      
     <div class="article-meta">
       <a href="/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/" class="article-date">
   <time datetime="2021-06-25T02:50:58.965Z" itemprop="datePublished">2021-06-25</time>
-</a>    
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+   
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h5 id="执行hexo-deploy部署代码时没有把新代码提交上去"><a href="#执行hexo-deploy部署代码时没有把新代码提交上去" class="headerlink" title="执行hexo deploy部署代码时没有把新代码提交上去"></a>执行hexo deploy部署代码时没有把新代码提交上去</h5><p><img src="../images/hexo1.png" alt="未成功"></p>
+<ul>
+<li>解决办法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">先执行 hexo clean  </span><br><span class="line">然后再执行hexo generate </span><br><span class="line">最后执行 hexo deploy</span><br><span class="line">如果嫌麻烦的话，可以再package.json中添加命令  &quot;deploy&quot;: &quot;hexo clean&amp;hexo generate&amp;hexo deploy&quot;</span><br></pre></td></tr></table></figure>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4></li>
+</ul>
+ 
       <!-- reward -->
       
     </div>
@@ -171,6 +191,8 @@
     
     <footer class="article-footer">
        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
     </footer>
   </div>
 
