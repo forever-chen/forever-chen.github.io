@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>gitalk搭建评论系统</title>
+    <url>/2021/06/25/gitalk%E6%90%AD%E5%BB%BA%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>今天用hexo与github搭建了自己的博客，用gitalk搭建的评论系统，踩了下gitalk的坑</p>
+<h2 id="gitalk官网地址"><a href="#gitalk官网地址" class="headerlink" title="gitalk官网地址"></a><a href="https://github.com/gitalk/gitalk">gitalk官网地址</a></h2><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h4 id="在hexo的主题config-yml文件中配置gitalk"><a href="#在hexo的主题config-yml文件中配置gitalk" class="headerlink" title="在hexo的主题config.yml文件中配置gitalk"></a>在hexo的主题config.yml文件中配置gitalk</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 2、Gitalk(https://github.com/gitalk/gitalk)</span><br><span class="line">gitalk:</span><br><span class="line">  enable: true # true</span><br><span class="line">  clientID: # GitHub Application Client ID</span><br><span class="line">  clientSecret:  # Client Secret</span><br><span class="line">  repo:  forever-chen.github.io # Repository name</span><br><span class="line">  owner: forever-chen # GitHub ID</span><br><span class="line">  admin: [forever-chen] # GitHub ID</span><br><span class="line">注意在config文件中书写键值对中间一定要加一个空格</span><br></pre></td></tr></table></figure>
+<h4 id="在github上注册应用（前提是已经注册了github）"><a href="#在github上注册应用（前提是已经注册了github）" class="headerlink" title="在github上注册应用（前提是已经注册了github）"></a>在github上注册应用（前提是已经注册了github）</h4><ul>
+<li>第一步：没注册github自行百度去</li>
+<li>第二步：<a href="https://github.com/settings/developers">注册github应用</a><br><img src="../images/gitalk1.png" alt="注册图片"></li>
+<li>注册完了把里面对应的clientID，clientSecret拿过来就可以了</li>
+<li>然后再到下面主题这个文件夹下修改对应的文件<br><img src="../images/gitalk2.png" alt="注册图片"></li>
+<li>接下来在评论区看到的应该是这样的<br><img src="../images/gitalk3.png" alt="未登录"></li>
+<li>看到上面的问题直接github登录就可以了<h4 id="gitalk的问题是要评论必须要登录githuab账号才可以，未登录只能看到评论但是不能些评论"><a href="#gitalk的问题是要评论必须要登录githuab账号才可以，未登录只能看到评论但是不能些评论" class="headerlink" title="gitalk的问题是要评论必须要登录githuab账号才可以，未登录只能看到评论但是不能些评论"></a>gitalk的问题是要评论必须要登录githuab账号才可以，未登录只能看到评论但是不能些评论</h4></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo使用技巧以及发现的问题总结</title>
+    <url>/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/</url>
+    <content><![CDATA[<h5 id="执行hexo-deploy部署代码时没有把新代码提交上去"><a href="#执行hexo-deploy部署代码时没有把新代码提交上去" class="headerlink" title="执行hexo deploy部署代码时没有把新代码提交上去"></a>执行hexo deploy部署代码时没有把新代码提交上去</h5><p><img src="../images/hexo1.png" alt="未成功"></p>
+<ul>
+<li>解决办法<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">先执行 hexo clean  </span><br><span class="line">然后再执行hexo generate </span><br><span class="line">最后执行 hexo deploy</span><br><span class="line">如果嫌麻烦的话，可以再package.json中添加命令  &quot;deploy&quot;: &quot;hexo clean&amp;hexo generate&amp;hexo deploy&quot;</span><br></pre></td></tr></table></figure>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo基础使用</title>
+    <url>/2021/06/24/hexo%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+</search>
