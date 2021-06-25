@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-24T10:08:59.781Z</updated>
+  <updated>2021-06-25T02:46:40.186Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,34 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2021/06/24/new/"/>
-    <id>http://example.com/2021/06/24/new/</id>
-    <published>2021-06-24T10:08:55.402Z</published>
-    <updated>2021-06-24T10:08:59.781Z</updated>
+    <title>gitalk搭建评论系统</title>
+    <link href="http://example.com/2021/06/25/gitalk%E6%90%AD%E5%BB%BA%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://example.com/2021/06/25/gitalk%E6%90%AD%E5%BB%BA%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</id>
+    <published>2021-06-25T02:06:04.711Z</published>
+    <updated>2021-06-25T02:46:40.186Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;p&gt;今天用hexo与github搭建了自己的博客，用gitalk搭建的评论系统，踩了下gitalk的坑&lt;/p&gt;
+&lt;h2 id=&quot;gitalk官网地址&quot;&gt;&lt;a href=&quot;#gitalk官网地址&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
-    <category term="list" scheme="http://example.com/tags/list/"/>
+    
+    <category term="github" scheme="http://example.com/tags/github/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2021/06/24/hello-world/"/>
-    <id>http://example.com/2021/06/24/hello-world/</id>
-    <published>2021-06-24T08:12:27.556Z</published>
-    <updated>2021-06-24T08:23:01.125Z</updated>
+    <link href="http://example.com/2021/06/24/new/"/>
+    <id>http://example.com/2021/06/24/new/</id>
+    <published>2021-06-24T10:08:55.402Z</published>
+    <updated>2021-06-25T02:01:27.819Z</updated>
     
     
       
@@ -56,6 +59,8 @@
       
     
     
+    
+    <category term="list1" scheme="http://example.com/categories/list1/"/>
     
     
     <category term="list" scheme="http://example.com/tags/list/"/>

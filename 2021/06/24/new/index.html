@@ -65,7 +65,11 @@
     <div class="article-meta">
       <a href="/2021/06/24/new/" class="article-date">
   <time datetime="2021-06-24T10:08:55.402Z" itemprop="datePublished">2021-06-24</time>
-</a>   
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/list1/">list1</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
@@ -185,16 +189,19 @@
    
   <nav class="article-nav">
     
-    
-      <a href="/2021/06/24/hello-world/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
+      <a href="/2021/06/25/gitalk%E6%90%AD%E5%BB%BA%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            gitalk搭建评论系统
+          
+        </div>
       </a>
+    
     
   </nav>
 
-   
- 
+  
    
     <div class="gitalk" id="gitalk-container"></div>
     
@@ -216,7 +223,7 @@
                         admin: ['forever-chen'],
                         // id: location.pathname,      // Ensure uniqueness and length less than 50
                         id: md5(location.pathname),
-                        distractionFreeMode: true, // Facebook-like distraction free mode
+                        distractionFreeMode: false, // Facebook-like distraction free mode
                         pagerDirection: 'last'
                     })
 
