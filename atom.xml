@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-25T02:46:40.186Z</updated>
+  <updated>2021-06-25T02:51:30.292Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/"/>
+    <id>http://example.com/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/</id>
+    <published>2021-06-25T02:50:58.965Z</published>
+    <updated>2021-06-25T02:51:30.292Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>gitalk搭建评论系统</title>
@@ -43,11 +56,11 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2021/06/24/new/"/>
-    <id>http://example.com/2021/06/24/new/</id>
+    <title>hexo基础使用</title>
+    <link href="http://example.com/2021/06/24/hexo%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/"/>
+    <id>http://example.com/2021/06/24/hexo%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</id>
     <published>2021-06-24T10:08:55.402Z</published>
-    <updated>2021-06-25T02:01:27.819Z</updated>
+    <updated>2021-06-25T02:50:26.602Z</updated>
     
     
       
@@ -60,10 +73,10 @@
     
     
     
-    <category term="list1" scheme="http://example.com/categories/list1/"/>
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="list" scheme="http://example.com/tags/list/"/>
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
     
   </entry>
   
