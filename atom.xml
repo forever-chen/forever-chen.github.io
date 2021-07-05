@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-30T10:02:03.064Z</updated>
+  <updated>2021-07-05T03:07:35.531Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,14 @@
     <link href="http://example.com/2021/06/30/nginx/ngxin%E5%AD%A6%E4%B9%A0/"/>
     <id>http://example.com/2021/06/30/nginx/ngxin%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-06-30T06:24:38.687Z</published>
-    <updated>2021-06-30T10:02:03.064Z</updated>
+    <updated>2021-07-05T03:07:35.531Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;为什么要使用nginx&quot;&gt;&lt;a href=&quot;#为什么要使用nginx&quot; class=&quot;headerlink&quot; title=&quot;为什么要使用nginx&quot;&gt;&lt;/a&gt;为什么要使用nginx&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;nginx是由俄罗斯人lgor</summary>
+    <summary type="html">&lt;h1 id=&quot;nginx-上手指南&quot;&gt;&lt;a href=&quot;#nginx-上手指南&quot; class=&quot;headerlink&quot; title=&quot;nginx 上手指南&quot;&gt;&lt;/a&gt;nginx 上手指南&lt;/h1&gt;&lt;h2 id=&quot;为什么要使用nginx&quot;&gt;&lt;a</summary>
         
       
     
