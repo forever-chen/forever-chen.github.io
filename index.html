@@ -154,6 +154,408 @@
     
     
     <article
+  id="post-python学习/第三课"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/22/python%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E8%AF%BE/"
+    >python学习第二课：文件管理</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/22/python%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E8%AF%BE/" class="article-date">
+  <time datetime="2021-07-22T02:27:32.590Z" itemprop="datePublished">2021-07-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E6%9C%8D%E5%8A%A1%E7%AB%AF/">服务端</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h2><h3 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f = open(&#x27;new_file.py&#x27;,&#x27;w&#x27;) //创建并打开文件</span><br><span class="line">f.write(&#x27;any info……&#x27;)   // 给文件写内容</span><br><span class="line">f.close()   // 关闭文件</span><br><span class="line">// 用with的防护不必写close</span><br><span class="line">with open(&#x27;new_file.py&#x27;,&#x27;w&#x27;) as f:</span><br><span class="line">    f.writelines([&#x27;some text for files2...\n&#x27;,&#x27;2nd line&#x27;])</span><br></pre></td></tr></table></figure>
+<h3 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f = open(&#x27;new_file.py&#x27;,&#x27;r&#x27;)</span><br><span class="line">print(f.read())</span><br><span class="line">f.close()</span><br><span class="line">with open(&#x27;new_file.py&#x27;,&#x27;r&#x27;) as f:</span><br><span class="line">    f.readlines()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>readlines是读取所有内容，然后整体返回</li>
+<li>readline琢行进行读并返回<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">with open(&#x27;new_files.txt&#x27;,&#x27;r&#x27;) as f:</span><br><span class="line">    while(True):</span><br><span class="line">        line = f.readline()</span><br><span class="line">        if not (line):</span><br><span class="line">            break</span><br></pre></td></tr></table></figure>
+<h3 id="文件编码"><a href="#文件编码" class="headerlink" title="文件编码"></a>文件编码</h3></li>
+<li>读写的时候编码格式应该一样，就不会出现乱码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f  = open(&#x27;new_file.txt&#x27;,&#x27;w&#x27;)</span><br><span class="line">f.writelines(&#x27;这是中文，this is chinese&#x27;.encode(&#x27;gbk&#x27;))</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">with open(&#x27;new_file.txt&#x27;,&#x27;r&#x27;,encoding = &#x27;gbk&#x27;) as f:</span><br><span class="line">    print(f.readLines())</span><br></pre></td></tr></table></figure>
+<h3 id="字符含义"><a href="#字符含义" class="headerlink" title="字符含义"></a>字符含义</h3></li>
+<li>w 写文本</li>
+<li>r 读文本</li>
+<li>a 在文本后面天际</li>
+<li>wb  写二进制</li>
+<li>rb  读二进制</li>
+<li>ab  添加二进制</li>
+<li>w+  既可以读又可以写（创建文件）</li>
+<li>r+  读写，文件不存在报错</li>
+<li>a+  读写，在后面添加</li>
+<li>x   创建<h2 id="文件目录管理"><a href="#文件目录管理" class="headerlink" title="文件目录管理"></a>文件目录管理</h2></li>
+<li>主要用到os模块</li>
+<li>os.getcwd()</li>
+<li>os.listdir()</li>
+<li>os.path.exists()</li>
+<li>os.makedirs()</li>
+<li>os.removedirs()   //这个只有文件内容为空的时候可以用，否则就会报错</li>
+<li>shutil</li>
+<li>shutil rmtree()   // 删除文件</li>
+<li>os.path.isfile()</li>
+<li>os.path.isdir()</li>
+<li>os.exists()<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import os </span><br><span class="line">def copy(path):</span><br><span class="line">    filename = os.path.basename(path)   // 文件名</span><br><span class="line">    dirname = os.path.dirname(path)     // 文件夹名</span><br><span class="line">    // dir_name,filename = os.path.split(path)  以上两行代码可以用这一行代码代替</span><br><span class="line">    new_fielname = &quot;new&quot;+filename</span><br><span class="line">    return os.path.join(dirname,new_filename)</span><br><span class="line">print(copy(&quot;users/mofan/a.txt&quot;))</span><br></pre></td></tr></table></figure>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2></li>
+<li>re.search 从每一行的开始进行匹配</li>
+<li>re.match  从字符串的最开始进行匹配</li>
+<li>re.findall</li>
+<li>re.finditer</li>
+<li>re.sub    返回替代后的字符串</li>
+<li>re.subn   返回替代次数</li>
+<li>正则中加入一个()就会返回括号里面匹配的内容<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string = &quot;I have 2021-02-01.jpg, 2021-02-02.jpg, 2021-02-03.jpg&quot;</span><br><span class="line">print(&quot;without ():&quot;, re.findall(r&quot;[\w-]+?\.jpg&quot;, string))</span><br><span class="line">print(&quot;with ():&quot;, re.findall(r&quot;([\w-]+?)\.jpg&quot;, string))</span><br></pre></td></tr></table></figure>
+<h2 id="pickle和json"><a href="#pickle和json" class="headerlink" title="pickle和json"></a>pickle和json</h2><table>
+<thead>
+<tr>
+<th align="center">对比</th>
+<th align="center">pickle</th>
+<th align="center">json</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">存储格式</td>
+<td align="center">python特定的bytes格式</td>
+<td align="center">通用json text格式，可用于常用的网络通信</td>
+</tr>
+<tr>
+<td align="center">数据种类</td>
+<td align="center">类，功能，字典，列表，元组</td>
+<td align="center">基本和pickle一样，但不能存类，功能</td>
+</tr>
+<tr>
+<td align="center">保存后可读性</td>
+<td align="center">不能直接阅读</td>
+<td align="center">能直接阅读</td>
+</tr>
+<tr>
+<td align="center">跨语言性</td>
+<td align="center">只能用在python</td>
+<td align="center">可以跨多种语言</td>
+</tr>
+<tr>
+<td align="center">处理时间</td>
+<td align="center">长（需要编码数据）</td>
+<td align="center">短（不需用编码数据）</td>
+</tr>
+<tr>
+<td align="center">安全性</td>
+<td align="center">不安全</td>
+<td align="center">相对安全</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-python学习/第二节课"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/21/python%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/"
+    >python学习第二课：函数/类/模块</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/21/python%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/" class="article-date">
+  <time datetime="2021-07-21T09:57:56.072Z" itemprop="datePublished">2021-07-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E6%9C%8D%E5%8A%A1%E7%AB%AF/">服务端</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>局部变量和全局变量<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">filename = &quot;f1.txt&quot;</span><br><span class="line">def modify_name():</span><br><span class="line">    filename = &quot;f2.txt&quot;</span><br><span class="line">    print(&quot;local filename:&quot;, filename)  // 修改不了全局变量，只有在函数内部才是f2.txt</span><br><span class="line">modify_name()</span><br><span class="line">print(&quot;global filename:&quot;, filename)</span><br></pre></td></tr></table></figure></li>
+<li>修改全局变量需要提前声明一下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">filename = &quot;f1.txt&quot;</span><br><span class="line">def modify_name():</span><br><span class="line">    global filename  # 提出申请</span><br><span class="line">    filename = &quot;f2.txt&quot;</span><br><span class="line">    print(&quot;local filename:&quot;, filename)</span><br><span class="line">modify_name()</span><br><span class="line">print(&quot;global filename:&quot;, filename)</span><br></pre></td></tr></table></figure></li>
+<li>可以类似于js中函数一样设置默认值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def function(arg=1):</span><br><span class="line">    print(arg)</span><br></pre></td></tr></table></figure>
+<h2 id="class类"><a href="#class类" class="headerlink" title="class类"></a>class类</h2></li>
+<li>通常我们约定类的名字要首字母大写<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class File:</span><br><span class="line">    def __init__(self):     // __init__在每一个类示例化的时候自动触发，在这里设定一些类的属性</span><br><span class="line">        self.name=&#x27;f1&#x27;</span><br><span class="line">        self.create_time=&#x27;today&#x27;</span><br><span class="line">my_file = File()</span><br><span class="line">print(my_file.name)</span><br><span class="line">print(my_file.create_time)</span><br></pre></td></tr></table></figure></li>
+<li>类的继承需要用到super关键字<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class File():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name=name</span><br><span class="line">class Video(File):</span><br><span class="line">    def __init__(self,name,size):</span><br><span class="line">        super().__init__(self,name)</span><br><span class="line">        self.size = self.size</span><br><span class="line">class Media(File):</span><br><span class="line">    def __init__(self,name,count):</span><br><span class="line">        super().__init__(name)</span><br></pre></td></tr></table></figure>
+<h2 id="module"><a href="#module" class="headerlink" title="module"></a>module</h2></li>
+<li>模块引入import<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import file</span><br><span class="line">import file as fl</span><br><span class="line">from file import file_name,file_create_time</span><br></pre></td></tr></table></figure></li>
+<li>module的设计和类的设计一摸一样</li>
+<li>对于多层级的模块可以通过以下两种方式引入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">第一种在根目录文件夹下新建__init__.py，然后把该文件夹下的模块import到这里(从files文件夹引用其内部的文件)</span><br><span class="line">然后再到别的模块中直接引用</span><br><span class="line">第二种直接通过目录嵌套引用</span><br><span class="line">import files.text</span><br><span class="line">或者</span><br><span class="line">from files import text</span><br></pre></td></tr></table></figure></li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-python学习/第一节课"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/21/python%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/"
+    >python学习第一课：数据/循环/判断</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/21/python%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" class="article-date">
+  <time datetime="2021-07-21T06:59:55.064Z" itemprop="datePublished">2021-07-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E6%9C%8D%E5%8A%A1%E7%AB%AF/">服务端</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><h3 id="“”双引号"><a href="#“”双引号" class="headerlink" title="“”双引号"></a>“”双引号</h3><h3 id="‘’单引号"><a href="#‘’单引号" class="headerlink" title="‘’单引号"></a>‘’单引号</h3><h3 id="“”“-“”“-三个引号"><a href="#“”“-“”“-三个引号" class="headerlink" title="“”“ “”“ 三个引号"></a>“”“ “”“ 三个引号</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">name=&quot;文件管理系统&quot;</span><br><span class="line">name=&#x27;文件管理系统&#x27;</span><br><span class="line">name=&quot;&quot;&quot;</span><br><span class="line">    文件管理</span><br><span class="line">    系统</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">name1, name2, name3 = &quot;文件&quot;, &quot;系统&quot;, &quot;管理&quot; 同时命名多个变量</span><br><span class="line">name1 = name2 = name3 = &quot;文件系统&quot; </span><br></pre></td></tr></table></figure>
+<h2 id="运算符（-）"><a href="#运算符（-）" class="headerlink" title="运算符（+ - * / % ** //）"></a>运算符（+ - * / % ** //）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3**3 = 27</span><br><span class="line">10//3 = 3</span><br><span class="line">10%3 = 1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>只能是同类型的变量进行运算，不同类型的变量运算会直接报错<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2></li>
+<li>if elif else<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">today = 4</span><br><span class="line">if today == 1:</span><br><span class="line">    print(&quot;周一&quot;)</span><br><span class="line">elif today == 2:</span><br><span class="line">    print(&quot;周二&quot;)</span><br><span class="line">elif today == 3:</span><br><span class="line">    print(&quot;周三&quot;)</span><br><span class="line">else:</span><br><span class="line">    print(&quot;周一周二周三之外的一天&quot;)</span><br></pre></td></tr></table></figure></li>
+<li><blockquote>
+<p>&lt; &gt;= &lt;= != ==</p>
+</blockquote>
+</li>
+<li>and or not<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for i in range(5)   //range(5)输出0，1，2，3，4</span><br><span class="line">    print(i)</span><br><span class="line">range(2,5)     // 输出 2，3，4</span><br><span class="line">range(3, 10, 2)     // 输出3，5，7，9</span><br><span class="line">while循环类似于js中while</span><br><span class="line">num = 0</span><br><span class="line">while num&lt;10</span><br><span class="line">    num++</span><br><span class="line">    print(num)</span><br></pre></td></tr></table></figure></li>
+<li>break 跳出当前循环并终止循环</li>
+<li>continue 只是跳出当前循环执行下一次村还<h2 id="数据种类"><a href="#数据种类" class="headerlink" title="数据种类"></a>数据种类</h2><h3 id="列表（相当于一列抽屉）"><a href="#列表（相当于一列抽屉）" class="headerlink" title="列表（相当于一列抽屉）"></a>列表（相当于一列抽屉）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">files=[1,2,3,4,5,6]</span><br><span class="line">print(files[0],files[1],files[-1],files[-2])</span><br><span class="line">files[0:3] files[:3]</span><br><span class="line">files[-3:]</span><br><span class="line">files[0]=0  // 修改列表数据</span><br><span class="line">l = [1, &quot;file&quot;, [&quot;2&quot;, 3.2]]     // 可以是多元列表</span><br><span class="line">print(l)</span><br><span class="line">l[2][0] = &quot;new string&quot;</span><br><span class="line">print(l)</span><br></pre></td></tr></table></figure></li>
+<li>相同的列表用==进行判断是False<h4 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h4></li>
+<li>append()向后面添加一个元素，只能传一个参数</li>
+<li>pop()从后面删除一个元素</li>
+<li>extend()从后面扩充多个元素</li>
+<li>insert(index,ele) 从下标位置添加一个元素</li>
+<li>del ele   删除某个元素</li>
+<li>remove()  删除某个元素，类似于del<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3></li>
+<li>类似于js中对象（相当于给每一个抽屉边角上贴了标签）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">files=&#123;a:1,b:[1,&#x27;2&#x27;],c:&#123;a:0&#125;&#125;</span><br><span class="line">files[a]=2  // 可以修改字典</span><br></pre></td></tr></table></figure></li>
+<li>keys,values,items可以获取到字典的</li>
+<li>没有重复的key，同样的key取到的是同样的值</li>
+<li>字典中元素也可以是任意元素，但是也不会重复的元素<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4></li>
+<li>pop(key)删除元素</li>
+<li>del()删除元素<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3></li>
+<li>类似于把列表的[]换成(),里边的每一个元素都不可改变<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">files = (&quot;file1&quot;, 1,&#123;&quot;a&quot;:1&#125;, (&quot;file3&quot;))</span><br><span class="line">print(files[1])</span><br></pre></td></tr></table></figure></li>
+<li>元组里面的元素可以是数字，字符串，列表，字典，元组</li>
+<li>用法类似于js中const<h3 id="set-集合"><a href="#set-集合" class="headerlink" title="set 集合"></a>set 集合</h3></li>
+<li>集合中没有重复的元素</li>
+<li>集合中元素没有顺序，所以不能想元组和列表那样根据下标访问<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">files=set([1,2,3,4])</span><br><span class="line">files[0]    // 报错</span><br><span class="line">files.add(0)    //会向前面添加一个元素</span><br><span class="line">files.reomve(1) // 删除括号中元素</span><br><span class="line">remove不存在的值也会报错</span><br><span class="line">add 和remove只能传一个值</span><br></pre></td></tr></table></figure>
+<h4 id="for循环可以遍历列表，字典，元组，集合"><a href="#for循环可以遍历列表，字典，元组，集合" class="headerlink" title="for循环可以遍历列表，字典，元组，集合"></a>for循环可以遍历列表，字典，元组，集合</h4></li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-echarts父元素宽度变化重新渲染"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/09/echarts%E7%88%B6%E5%85%83%E7%B4%A0%E5%AE%BD%E5%BA%A6%E5%8F%98%E5%8C%96%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/"
+    >echarts随父元素宽度变化渲染</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/09/echarts%E7%88%B6%E5%85%83%E7%B4%A0%E5%AE%BD%E5%BA%A6%E5%8F%98%E5%8C%96%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/" class="article-date">
+  <time datetime="2021-07-09T09:22:07.542Z" itemprop="datePublished">2021-07-09</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="echarts随父元素宽度变化渲染（ResizeObserver）"><a href="#echarts随父元素宽度变化渲染（ResizeObserver）" class="headerlink" title="echarts随父元素宽度变化渲染（ResizeObserver）"></a>echarts随父元素宽度变化渲染（ResizeObserver）</h2><h3 id="概念：ResizeObserver监听内容区域或-SVGElement的边界框改变"><a href="#概念：ResizeObserver监听内容区域或-SVGElement的边界框改变" class="headerlink" title="概念：ResizeObserver监听内容区域或 SVGElement的边界框改变"></a>概念：ResizeObserver监听内容区域或 SVGElement的边界框改变</h3><ul>
+<li>通俗点说就是监听元素内容区域的变化，内容区域则需要减去内边距padding</li>
+<li>回调函数中不会触发事件，可以避免在自身毁掉中调整大小，从而触发的无限回调和循环依赖。</li>
+<li><a target="_blank" rel="noopener" href="https://caniuse.com/?search=ResizeObserver">can I use</a><br><img src="../images/echarts1.png" alt="兼容性"><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3></li>
+<li>disconnect:取消和结束目标对象傻姑娘所有对elment的监听</li>
+<li>observe：开始观察指定的element</li>
+<li>unobserve：结束观察指定的element<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const resizeObserver = new ResizeObserver(entries =&gt; &#123;</span><br><span class="line">  for (let entry of entries) &#123;</span><br><span class="line">    entry.target.style.borderRadius = Math.max(0, 250 - entry.contentRect.width) + &#x27;px&#x27;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">resizeObserver.observe(document.querySelector(&#x27;.box:nth-child(2)&#x27;));</span><br></pre></td></tr></table></figure>
+<h3 id="监听echarts元素宽度变化"><a href="#监听echarts元素宽度变化" class="headerlink" title="监听echarts元素宽度变化"></a>监听echarts元素宽度变化</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 如果元素宽度或者高度变化有动画，回调函数会一直触发，所以用throttle节流</span><br><span class="line">const ro = new ResizeObserver(throttle(this.setOption,500));</span><br><span class="line">ro.observe(this.$refs.element);</span><br></pre></td></tr></table></figure></li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/echarts/" rel="tag">echarts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-函数的节流防抖"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/09/%E5%87%BD%E6%95%B0%E7%9A%84%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/"
+    >js函数中的节流防抖以及使用</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/09/%E5%87%BD%E6%95%B0%E7%9A%84%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" class="article-date">
+  <time datetime="2021-07-09T07:44:54.782Z" itemprop="datePublished">2021-07-09</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="js函数中的节流防抖以及使用"><a href="#js函数中的节流防抖以及使用" class="headerlink" title="js函数中的节流防抖以及使用"></a>js函数中的节流防抖以及使用</h2><h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><h5 id="概念：-通俗点说就是在一定时间内，限制一个动作只执行一次"><a href="#概念：-通俗点说就是在一定时间内，限制一个动作只执行一次" class="headerlink" title="概念： 通俗点说就是在一定时间内，限制一个动作只执行一次"></a>概念： 通俗点说就是在一定时间内，限制一个动作只执行一次</h5><h5 id="为什么要使用节流"><a href="#为什么要使用节流" class="headerlink" title="为什么要使用节流"></a>为什么要使用节流</h5><ul>
+<li>在前端开发中，有一些需要频繁触发的函数比如onresize,scroll,mousemove,moverover等，如果不加限制的话1秒内可能会触发几百次</li>
+<li>还有搜索框ajax请求，多次的请求会造成数据的混乱以及网络阻塞，占用服务器宽带，增加服务器压力<h5 id="节流方案"><a href="#节流方案" class="headerlink" title="节流方案"></a>节流方案</h5></li>
+<li>第一种：时间戳节流<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 时间戳方案</span><br><span class="line">function throttle(fn,wait)&#123;</span><br><span class="line">    var pre = Date.now();   </span><br><span class="line">    return function()&#123;</span><br><span class="line">        var context = this;</span><br><span class="line">        var args = arguments;</span><br><span class="line">        var now = Date.now();</span><br><span class="line">        if( now - pre &gt;= wait)&#123;</span><br><span class="line">            fn.apply(context,args);</span><br><span class="line">            pre = Date.now();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handle()&#123;</span><br><span class="line">    console.log(Math.random());</span><br><span class="line">&#125;</span><br><span class="line">window.addEventListener(&quot;mousemove&quot;,throttle(handle,1000));</span><br><span class="line">// 事件初始化会定义pre的值，一般函数（mousemove）执行的时候立马就会执行一次，然后wait毫秒之后会执行第二次</span><br></pre></td></tr></table></figure></li>
+<li>第二种：定时器节流<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 定时器方案</span><br><span class="line">function throttle(fn,wait)&#123;</span><br><span class="line">    var timer = null;</span><br><span class="line">    return function()&#123;</span><br><span class="line">        var context = this;</span><br><span class="line">        var args = arguments;</span><br><span class="line">        if(!timer)&#123;</span><br><span class="line">            timer = seTimeout(function()&#123;</span><br><span class="line">                fn.apply(context,args);</span><br><span class="line">                timer = null;</span><br><span class="line">            &#125;,wait)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function handle()&#123;</span><br><span class="line">    console.log(Math.random());</span><br><span class="line">&#125;</span><br><span class="line">window.addEventListener(&quot;mousemove&quot;,throttle(handle,1000));</span><br><span class="line">// 第一次触发之后等待wait毫秒之后才会执行fn</span><br></pre></td></tr></table></figure>
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><h4 id="概念：在给定的时间过后，或者连续事件完全触发完成之后，仅调用一次"><a href="#概念：在给定的时间过后，或者连续事件完全触发完成之后，仅调用一次" class="headerlink" title="概念：在给定的时间过后，或者连续事件完全触发完成之后，仅调用一次"></a>概念：在给定的时间过后，或者连续事件完全触发完成之后，仅调用一次</h4><h4 id="第一种防抖-非立即执行版"><a href="#第一种防抖-非立即执行版" class="headerlink" title="第一种防抖:非立即执行版"></a>第一种防抖:非立即执行版</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function debounce(func,wait)&#123;</span><br><span class="line">    let timeer</span><br><span class="line">    return function()&#123;</span><br><span class="line">        let context = this</span><br><span class="line">        let args = arguments</span><br><span class="line">        if(timer) clearTimeout(timer)</span><br><span class="line">        timer = setTimeout(()=&gt;&#123;</span><br><span class="line">            func.apply(context,args)</span><br><span class="line">        &#125;,wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 事件完成wait毫秒之后才会执行func</span><br></pre></td></tr></table></figure>
+<h4 id="第二种：立即执行版"><a href="#第二种：立即执行版" class="headerlink" title="第二种：立即执行版"></a>第二种：立即执行版</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function debounce(func,wait)&#123;</span><br><span class="line">    let timeer</span><br><span class="line">    return function()&#123;</span><br><span class="line">        let context = this</span><br><span class="line">        let args = arguments</span><br><span class="line">        if(timer) clearTimeout(timer)</span><br><span class="line">        timer = setTimeout(()=&gt;&#123;</span><br><span class="line">            timer = null</span><br><span class="line">        &#125;,wait)</span><br><span class="line">        let callNow = !timer</span><br><span class="line">        if(callNow)&#123;</span><br><span class="line">            func.apply(context,args)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 事件完成wait毫秒之后立即执行</span><br></pre></td></tr></table></figure>
+<h2 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h2></li>
+<li>setTimeout的最短时间是4ms</li>
+<li>setInterval的最短时间是10ms</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-nginx/ngxin学习"
   class="article article-type-post"
   itemscope
@@ -161,11 +563,26 @@
   data-scroll-reveal
 >
   <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/06/30/nginx/ngxin%E5%AD%A6%E4%B9%A0/"
+    >nginx使用</a> 
+</h2>
+ 
+
+      
+    </header>
      
     <div class="article-meta">
       <a href="/2021/06/30/nginx/ngxin%E5%AD%A6%E4%B9%A0/" class="article-date">
   <time datetime="2021-06-30T06:24:38.687Z" itemprop="datePublished">2021-06-30</time>
-</a>    
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+  </div>
+   
     </div>
       
     <div class="article-entry" itemprop="articleBody">
@@ -222,9 +639,21 @@
 <li>使用-e ，!-e 检查一个文件、目录、符号链接是否存在</li>
 <li>使用-x ， !-x 检查一个文件是否可执行<h4 id="return指令"><a href="#return指令" class="headerlink" title="return指令"></a>return指令</h4></li>
 <li>return code</li>
-<li>停止处理并返回指定状态码给客户端</li>
+<li>停止处理并返回指定状态码给客户端<h3 id="nginx-反向代理"><a href="#nginx-反向代理" class="headerlink" title="nginx 反向代理"></a>nginx 反向代理</h3></li>
+<li>nginx可以反向代理也可以正向代理</li>
+<li><a target="_blank" rel="noopener" href="https://www.nginx.cn/927.html">外网服务器-》nginx反向代理服务-》内网web服务</a></li>
+<li>nginx反向代理使用默认自带的proxy_pass和fastcgi_pass实现<h5 id="反向代理服务器的好处"><a href="#反向代理服务器的好处" class="headerlink" title="反向代理服务器的好处"></a>反向代理服务器的好处</h5></li>
+<li>nginx反向代理的重要作用是配合upstream实现负载均衡</li>
+<li>增加安全性，客户端不能直接访问后端服务，多一层中间屏障</li>
+<li>可以利用缓存，压缩响应提升响应速度<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name www.nginx.cn nginx.cn;</span><br><span class="line"></span><br><span class="line">    location /app &#123;</span><br><span class="line">       fastcgi_pass  unix:/tmp/php-cgi.sock;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name www.nginx.cn nginx.cn;</span><br><span class="line"></span><br><span class="line">    location /app &#123;</span><br><span class="line">       proxy_pass http://127.0.0.1:8080;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fastcgi_pass是用来反向代理fastcgi协议，proxy_pass可以代理包括fastcgi协议在内的其它协议。</span><br></pre></td></tr></table></figure>
+<h3 id="nginx负载均衡配置"><a href="#nginx负载均衡配置" class="headerlink" title="nginx负载均衡配置"></a>nginx负载均衡配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">#设定http服务器，利用它的反向代理功能提供负载均衡支持</span><br><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">    #设定mime类型,类型由mime.type文件定义</span><br><span class="line">    include             /etc/nginx/mime.types;</span><br><span class="line">    default_type    application/octet-stream;</span><br><span class="line"></span><br><span class="line">    #设定日志格式</span><br><span class="line">    access_log        /var/log/nginx/access.log;</span><br><span class="line"></span><br><span class="line">    #省略上文有的一些配置节点</span><br><span class="line">    #。。。。。。。。。。</span><br><span class="line"></span><br><span class="line">    #设定负载均衡的服务器列表</span><br><span class="line">    upstream mysvr &#123;</span><br><span class="line">        #weigth参数表示权值，权值越高被分配到的几率越大</span><br><span class="line">        server 192.168.8.1x:3128 weight=5;</span><br><span class="line">        #本机上的Squid开启3128端口,不是必须要squid</span><br><span class="line">        server 192.168.8.2x:80    weight=1;</span><br><span class="line">        server 192.168.8.3x:80    weight=6;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    upstream mysvr2 &#123;</span><br><span class="line">        #weigth参数表示权值，权值越高被分配到的几率越大</span><br><span class="line">        server 192.168.8.x:80    weight=1;</span><br><span class="line">        server 192.168.8.x:80    weight=6;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #第一个虚拟服务器</span><br><span class="line">    server &#123;</span><br><span class="line">        #侦听192.168.8.x的80端口</span><br><span class="line">        listen             80;</span><br><span class="line">        server_name    192.168.8.x;</span><br><span class="line"></span><br><span class="line">        #对aspx后缀的进行负载均衡请求</span><br><span class="line">        location ~ .*.aspx$ &#123;</span><br><span class="line">            #定义服务器的默认网站根目录位置</span><br><span class="line">            root     /root; </span><br><span class="line">            #定义首页索引文件的名称</span><br><span class="line">            index index.php index.html index.htm;</span><br><span class="line">            </span><br><span class="line">            #请求转向mysvr 定义的服务器列表</span><br><span class="line">            proxy_pass    http://mysvr ;</span><br><span class="line"></span><br><span class="line">            #以下是一些反向代理的配置可删除.</span><br><span class="line"></span><br><span class="line">            proxy_redirect off;</span><br><span class="line"></span><br><span class="line">            #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP</span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"></span><br><span class="line">            #允许客户端请求的最大单文件字节数</span><br><span class="line">            client_max_body_size 10m; </span><br><span class="line"></span><br><span class="line">            #缓冲区代理缓冲用户端请求的最大字节数，</span><br><span class="line">            client_body_buffer_size 128k;</span><br><span class="line"></span><br><span class="line">            #nginx跟后端服务器连接超时时间(代理连接超时)</span><br><span class="line">            proxy_connect_timeout 90;</span><br><span class="line"></span><br><span class="line">            #连接成功后，后端服务器响应时间(代理接收超时)</span><br><span class="line">            proxy_read_timeout 90;</span><br><span class="line"></span><br><span class="line">            #设置代理服务器（nginx）保存用户头信息的缓冲区大小</span><br><span class="line">            proxy_buffer_size 4k;</span><br><span class="line"></span><br><span class="line">            #proxy_buffers缓冲区，网页平均在32k以下的话，这样设置</span><br><span class="line">            proxy_buffers 4 32k;</span><br><span class="line"></span><br><span class="line">            #高负荷下缓冲大小（proxy_buffers*2）</span><br><span class="line">            proxy_busy_buffers_size 64k; </span><br><span class="line"></span><br><span class="line">            #设定缓存文件夹大小，大于这个值，将从upstream服务器传</span><br><span class="line">            proxy_temp_file_write_size 64k;    </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用nginx设置缓存"><a href="#使用nginx设置缓存" class="headerlink" title="使用nginx设置缓存"></a>使用nginx设置缓存</h3></li>
+<li>随着网站流量的提升，如果只是单台服务器即处理静态文件，又处理动态脚本，效率比较低。因此可以分两层架构组织网站，前端web+后端web服务器</li>
+<li>前端请求设置超时时间，缓存页面过期之后再向服务器发起请求请求新的资源</li>
+<li>nginx的所有模块都是在编译的时候添加，不能在运行的时候动态添加</li>
+<li>nginx的web缓存功能的主要是由proxy_cache、fastcgi_cache指令集和相关指令集完成<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">#运行用户</span><br><span class="line">user nobody;</span><br><span class="line">#启动进程,通常设置成和cpu的数量相等</span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">#全局错误日志及PID文件</span><br><span class="line">#error_log  logs/error.log;</span><br><span class="line">#error_log  logs/error.log  notice;</span><br><span class="line">#error_log  logs/error.log  info;</span><br><span class="line"></span><br><span class="line">#pid        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line">#工作模式及连接数上限</span><br><span class="line">events &#123;</span><br><span class="line">    #epoll是多路复用IO(I/O Multiplexing)中的一种方式,</span><br><span class="line">    #仅用于linux2.6以上内核,可以大大提高nginx的性能</span><br><span class="line">    use   epoll; </span><br><span class="line"></span><br><span class="line">    #单个后台worker process进程的最大并发链接数    </span><br><span class="line">    worker_connections  1024;</span><br><span class="line"></span><br><span class="line">    # 并发总数是 worker_processes 和 worker_connections 的乘积</span><br><span class="line">    # 即 max_clients = worker_processes * worker_connections</span><br><span class="line">    # 在设置了反向代理的情况下，max_clients = worker_processes * worker_connections / 4  为什么</span><br><span class="line">    # 为什么上面反向代理要除以4，应该说是一个经验值</span><br><span class="line">    # 根据以上条件，正常情况下的Nginx Server可以应付的最大连接数为：4 * 8000 = 32000</span><br><span class="line">    # worker_connections 值的设置跟物理内存大小有关</span><br><span class="line">    # 因为并发受IO约束，max_clients的值须小于系统可以打开的最大文件数</span><br><span class="line">    # 而系统可以打开的最大文件数和内存大小成正比，一般1GB内存的机器上可以打开的文件数大约是10万左右</span><br><span class="line">    # 我们来看看360M内存的VPS可以打开的文件句柄数是多少：</span><br><span class="line">    # $ cat /proc/sys/fs/file-max</span><br><span class="line">    # 输出 34336</span><br><span class="line">    # 32000 &lt; 34336，即并发连接总数小于系统可以打开的文件句柄总数，这样就在操作系统可以承受的范围之内</span><br><span class="line">    # 所以，worker_connections 的值需根据 worker_processes 进程数目和系统可以打开的最大文件总数进行适当地进行设置</span><br><span class="line">    # 使得并发总数小于操作系统可以打开的最大文件数目</span><br><span class="line">    # 其实质也就是根据主机的物理CPU和内存进行配置</span><br><span class="line">    # 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的工作进程需要消耗系统资源。</span><br><span class="line">    # ulimit -SHn 65535</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    #设定mime类型,类型由mime.type文件定义</span><br><span class="line">    include    mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    #设定日志格式</span><br><span class="line">    log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">                      &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">                      &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    access_log  logs/access.log  main;</span><br><span class="line"></span><br><span class="line">    #sendfile 指令指定 nginx 是否调用 sendfile 函数（zero copy 方式）来输出文件，</span><br><span class="line">    #对于普通应用，必须设为 on,</span><br><span class="line">    #如果用来进行下载等应用磁盘IO重负载应用，可设置为 off，</span><br><span class="line">    #以平衡磁盘与网络I/O处理速度，降低系统的uptime.</span><br><span class="line">    sendfile     on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #连接超时时间</span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    tcp_nodelay     on;</span><br><span class="line"></span><br><span class="line">    #开启gzip压缩</span><br><span class="line">    gzip  on;</span><br><span class="line">    gzip_disable &quot;MSIE [1-6].&quot;;</span><br><span class="line"></span><br><span class="line">    #设定请求缓冲</span><br><span class="line">    client_header_buffer_size    128k;</span><br><span class="line">    large_client_header_buffers  4 128k;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    #设定虚拟主机配置</span><br><span class="line">    server &#123;</span><br><span class="line">        #侦听80端口</span><br><span class="line">        listen    80;</span><br><span class="line">        #定义使用 www.nginx.cn访问</span><br><span class="line">        server_name  www.nginx.cn;</span><br><span class="line"></span><br><span class="line">        #定义服务器的默认网站根目录位置</span><br><span class="line">        root html;</span><br><span class="line"></span><br><span class="line">        #设定本虚拟主机的访问日志</span><br><span class="line">        access_log  logs/nginx.access.log  main;</span><br><span class="line"></span><br><span class="line">        #默认请求</span><br><span class="line">        location / &#123;</span><br><span class="line">            </span><br><span class="line">            #定义首页索引文件的名称</span><br><span class="line">            index index.php index.html index.htm;   </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        # 定义错误提示页面</span><br><span class="line">        error_page   500 502 503 504 /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #静态文件，nginx自己处理</span><br><span class="line">        location ~ ^/(images|javascript|js|css|flash|media|static)/ &#123;</span><br><span class="line">            </span><br><span class="line">            #过期30天，静态文件不怎么更新，过期可以设大一点，</span><br><span class="line">            #如果频繁更新，则可以设置得小一点。</span><br><span class="line">            expires 30d;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI默认配置.</span><br><span class="line">        location ~ .php$ &#123;</span><br><span class="line">            fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">            fastcgi_index index.php;</span><br><span class="line">            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">            include fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #禁止访问 .htxxx 文件</span><br><span class="line">            location ~ /.ht &#123;</span><br><span class="line">            deny all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">#运行用户</span><br><span class="line">user nobody;</span><br><span class="line">#启动进程,通常设置成和cpu的数量相等</span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">#全局错误日志及PID文件</span><br><span class="line">#error_log  logs/error.log;</span><br><span class="line">#error_log  logs/error.log  notice;</span><br><span class="line">#error_log  logs/error.log  info;</span><br><span class="line"></span><br><span class="line">#pid        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line">#工作模式及连接数上限</span><br><span class="line">events &#123;</span><br><span class="line">    #epoll是多路复用IO(I/O Multiplexing)中的一种方式,</span><br><span class="line">    #仅用于linux2.6以上内核,可以大大提高nginx的性能</span><br><span class="line">    use   epoll; </span><br><span class="line"></span><br><span class="line">    #单个后台worker process进程的最大并发链接数    </span><br><span class="line">    worker_connections  1024;</span><br><span class="line"></span><br><span class="line">    # 并发总数是 worker_processes 和 worker_connections 的乘积</span><br><span class="line">    # 即 max_clients = worker_processes * worker_connections</span><br><span class="line">    # 在设置了反向代理的情况下，max_clients = worker_processes * worker_connections / 4  为什么</span><br><span class="line">    # 为什么上面反向代理要除以4，应该说是一个经验值</span><br><span class="line">    # 根据以上条件，正常情况下的Nginx Server可以应付的最大连接数为：4 * 8000 = 32000</span><br><span class="line">    # worker_connections 值的设置跟物理内存大小有关</span><br><span class="line">    # 因为并发受IO约束，max_clients的值须小于系统可以打开的最大文件数</span><br><span class="line">    # 而系统可以打开的最大文件数和内存大小成正比，一般1GB内存的机器上可以打开的文件数大约是10万左右</span><br><span class="line">    # 我们来看看360M内存的VPS可以打开的文件句柄数是多少：</span><br><span class="line">    # $ cat /proc/sys/fs/file-max</span><br><span class="line">    # 输出 34336</span><br><span class="line">    # 32000 &lt; 34336，即并发连接总数小于系统可以打开的文件句柄总数，这样就在操作系统可以承受的范围之内</span><br><span class="line">    # 所以，worker_connections 的值需根据 worker_processes 进程数目和系统可以打开的最大文件总数进行适当地进行设置</span><br><span class="line">    # 使得并发总数小于操作系统可以打开的最大文件数目</span><br><span class="line">    # 其实质也就是根据主机的物理CPU和内存进行配置</span><br><span class="line">    # 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的工作进程需要消耗系统资源。</span><br><span class="line">    # ulimit -SHn 65535</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    #设定mime类型,类型由mime.type文件定义</span><br><span class="line">    include    mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    #设定日志格式</span><br><span class="line">    log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">                      &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">                      &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    access_log  logs/access.log  main;</span><br><span class="line"></span><br><span class="line">    #sendfile 指令指定 nginx 是否调用 sendfile 函数（zero copy 方式）来输出文件，</span><br><span class="line">    #对于普通应用，必须设为 on,</span><br><span class="line">    #如果用来进行下载等应用磁盘IO重负载应用，可设置为 off，</span><br><span class="line">    #以平衡磁盘与网络I/O处理速度，降低系统的uptime.</span><br><span class="line">    sendfile     on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #连接超时时间</span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    tcp_nodelay     on;</span><br><span class="line"></span><br><span class="line">    #开启gzip压缩</span><br><span class="line">    gzip  on;</span><br><span class="line">    gzip_disable &quot;MSIE [1-6].&quot;;</span><br><span class="line"></span><br><span class="line">    #设定请求缓冲</span><br><span class="line">    client_header_buffer_size    128k;</span><br><span class="line">    large_client_header_buffers  4 128k;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    #设定虚拟主机配置</span><br><span class="line">    server &#123;</span><br><span class="line">        #侦听80端口</span><br><span class="line">        listen    80;</span><br><span class="line">        #定义使用 www.nginx.cn访问</span><br><span class="line">        server_name  www.nginx.cn;</span><br><span class="line"></span><br><span class="line">        #定义服务器的默认网站根目录位置</span><br><span class="line">        root html;</span><br><span class="line"></span><br><span class="line">        #设定本虚拟主机的访问日志</span><br><span class="line">        access_log  logs/nginx.access.log  main;</span><br><span class="line"></span><br><span class="line">        #默认请求</span><br><span class="line">        location / &#123;</span><br><span class="line">            </span><br><span class="line">            #定义首页索引文件的名称</span><br><span class="line">            index index.php index.html index.htm;   </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        # 定义错误提示页面</span><br><span class="line">        error_page   500 502 503 504 /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #静态文件，nginx自己处理</span><br><span class="line">        location ~ ^/(images|javascript|js|css|flash|media|static)/ &#123;</span><br><span class="line">            </span><br><span class="line">            #过期30天，静态文件不怎么更新，过期可以设大一点，</span><br><span class="line">            #如果频繁更新，则可以设置得小一点。</span><br><span class="line">            expires 30d;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI默认配置.</span><br><span class="line">        location ~ .php$ &#123;</span><br><span class="line">            fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">            fastcgi_index index.php;</span><br><span class="line">            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">            include fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #禁止访问 .htxxx 文件</span><br><span class="line">            location ~ /.ht &#123;</span><br><span class="line">            deny all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+ 
       <!-- reward -->
       
     </div>
@@ -234,6 +663,8 @@
     
     <footer class="article-footer">
        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
+
     </footer>
   </div>
 

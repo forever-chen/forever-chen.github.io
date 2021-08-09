@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>hexo使用技巧以及发现的问题总结 |  forever-chen</title>
+      <title>python学习第一课：数据/循环/判断 |  forever-chen</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -53,7 +53,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-hexo使用中发现的问题，及时更新中……"
+  id="post-python学习/第一节课"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -64,7 +64,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  hexo使用技巧以及发现的问题总结
+  python学习第一课：数据/循环/判断
 </h1>
  
 
@@ -72,11 +72,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/" class="article-date">
-  <time datetime="2021-06-25T02:50:58.965Z" itemprop="datePublished">2021-06-25</time>
+      <a href="/2021/07/21/python%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" class="article-date">
+  <time datetime="2021-07-21T06:59:55.064Z" itemprop="datePublished">2021-07-21</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E6%9C%8D%E5%8A%A1%E7%AB%AF/">服务端</a>
   </div>
   
 <div class="word_count">
@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">91</span>
+            <span class="post-count">690</span>
         </span>
     </span>
 
@@ -93,7 +93,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -108,10 +108,37 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h5 id="执行hexo-deploy部署代码时没有把新代码提交上去"><a href="#执行hexo-deploy部署代码时没有把新代码提交上去" class="headerlink" title="执行hexo deploy部署代码时没有把新代码提交上去"></a>执行hexo deploy部署代码时没有把新代码提交上去</h5><p><img src="../images/hexo1.png" alt="未成功"></p>
+  <h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><h3 id="“”双引号"><a href="#“”双引号" class="headerlink" title="“”双引号"></a>“”双引号</h3><h3 id="‘’单引号"><a href="#‘’单引号" class="headerlink" title="‘’单引号"></a>‘’单引号</h3><h3 id="“”“-“”“-三个引号"><a href="#“”“-“”“-三个引号" class="headerlink" title="“”“ “”“ 三个引号"></a>“”“ “”“ 三个引号</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">name=&quot;文件管理系统&quot;</span><br><span class="line">name=&#x27;文件管理系统&#x27;</span><br><span class="line">name=&quot;&quot;&quot;</span><br><span class="line">    文件管理</span><br><span class="line">    系统</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">name1, name2, name3 = &quot;文件&quot;, &quot;系统&quot;, &quot;管理&quot; 同时命名多个变量</span><br><span class="line">name1 = name2 = name3 = &quot;文件系统&quot; </span><br></pre></td></tr></table></figure>
+<h2 id="运算符（-）"><a href="#运算符（-）" class="headerlink" title="运算符（+ - * / % ** //）"></a>运算符（+ - * / % ** //）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3**3 = 27</span><br><span class="line">10//3 = 3</span><br><span class="line">10%3 = 1</span><br></pre></td></tr></table></figure>
 <ul>
-<li>解决办法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">先执行 hexo clean  </span><br><span class="line">然后再执行hexo generate </span><br><span class="line">最后执行 hexo deploy</span><br><span class="line">如果嫌麻烦的话，可以再package.json中添加命令  &quot;deploy&quot;: &quot;hexo clean&amp;hexo generate&amp;hexo deploy&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="在vscode中编写markdown文件可以用插件-Markdown-Preview-Enhanced查看效果"><a href="#在vscode中编写markdown文件可以用插件-Markdown-Preview-Enhanced查看效果" class="headerlink" title="在vscode中编写markdown文件可以用插件 Markdown Preview Enhanced查看效果"></a>在vscode中编写markdown文件可以用插件 <code>Markdown Preview Enhanced</code>查看效果</h4></li>
+<li>只能是同类型的变量进行运算，不同类型的变量运算会直接报错<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2></li>
+<li>if elif else<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">today = 4</span><br><span class="line">if today == 1:</span><br><span class="line">    print(&quot;周一&quot;)</span><br><span class="line">elif today == 2:</span><br><span class="line">    print(&quot;周二&quot;)</span><br><span class="line">elif today == 3:</span><br><span class="line">    print(&quot;周三&quot;)</span><br><span class="line">else:</span><br><span class="line">    print(&quot;周一周二周三之外的一天&quot;)</span><br></pre></td></tr></table></figure></li>
+<li><blockquote>
+<p>&lt; &gt;= &lt;= != ==</p>
+</blockquote>
+</li>
+<li>and or not<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for i in range(5)   //range(5)输出0，1，2，3，4</span><br><span class="line">    print(i)</span><br><span class="line">range(2,5)     // 输出 2，3，4</span><br><span class="line">range(3, 10, 2)     // 输出3，5，7，9</span><br><span class="line">while循环类似于js中while</span><br><span class="line">num = 0</span><br><span class="line">while num&lt;10</span><br><span class="line">    num++</span><br><span class="line">    print(num)</span><br></pre></td></tr></table></figure></li>
+<li>break 跳出当前循环并终止循环</li>
+<li>continue 只是跳出当前循环执行下一次村还<h2 id="数据种类"><a href="#数据种类" class="headerlink" title="数据种类"></a>数据种类</h2><h3 id="列表（相当于一列抽屉）"><a href="#列表（相当于一列抽屉）" class="headerlink" title="列表（相当于一列抽屉）"></a>列表（相当于一列抽屉）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">files=[1,2,3,4,5,6]</span><br><span class="line">print(files[0],files[1],files[-1],files[-2])</span><br><span class="line">files[0:3] files[:3]</span><br><span class="line">files[-3:]</span><br><span class="line">files[0]=0  // 修改列表数据</span><br><span class="line">l = [1, &quot;file&quot;, [&quot;2&quot;, 3.2]]     // 可以是多元列表</span><br><span class="line">print(l)</span><br><span class="line">l[2][0] = &quot;new string&quot;</span><br><span class="line">print(l)</span><br></pre></td></tr></table></figure></li>
+<li>相同的列表用==进行判断是False<h4 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h4></li>
+<li>append()向后面添加一个元素，只能传一个参数</li>
+<li>pop()从后面删除一个元素</li>
+<li>extend()从后面扩充多个元素</li>
+<li>insert(index,ele) 从下标位置添加一个元素</li>
+<li>del ele   删除某个元素</li>
+<li>remove()  删除某个元素，类似于del<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3></li>
+<li>类似于js中对象（相当于给每一个抽屉边角上贴了标签）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">files=&#123;a:1,b:[1,&#x27;2&#x27;],c:&#123;a:0&#125;&#125;</span><br><span class="line">files[a]=2  // 可以修改字典</span><br></pre></td></tr></table></figure></li>
+<li>keys,values,items可以获取到字典的</li>
+<li>没有重复的key，同样的key取到的是同样的值</li>
+<li>字典中元素也可以是任意元素，但是也不会重复的元素<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4></li>
+<li>pop(key)删除元素</li>
+<li>del()删除元素<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3></li>
+<li>类似于把列表的[]换成(),里边的每一个元素都不可改变<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">files = (&quot;file1&quot;, 1,&#123;&quot;a&quot;:1&#125;, (&quot;file3&quot;))</span><br><span class="line">print(files[1])</span><br></pre></td></tr></table></figure></li>
+<li>元组里面的元素可以是数字，字符串，列表，字典，元组</li>
+<li>用法类似于js中const<h3 id="set-集合"><a href="#set-集合" class="headerlink" title="set 集合"></a>set 集合</h3></li>
+<li>集合中没有重复的元素</li>
+<li>集合中元素没有顺序，所以不能想元组和列表那样根据下标访问<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">files=set([1,2,3,4])</span><br><span class="line">files[0]    // 报错</span><br><span class="line">files.add(0)    //会向前面添加一个元素</span><br><span class="line">files.reomve(1) // 删除括号中元素</span><br><span class="line">remove不存在的值也会报错</span><br><span class="line">add 和remove只能传一个值</span><br></pre></td></tr></table></figure>
+<h4 id="for循环可以遍历列表，字典，元组，集合"><a href="#for循环可以遍历列表，字典，元组，集合" class="headerlink" title="for循环可以遍历列表，字典，元组，集合"></a>for循环可以遍历列表，字典，元组，集合</h4></li>
 </ul>
  
       <!-- reward -->
@@ -177,12 +204,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/07/21/python%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
   </div>
@@ -190,19 +217,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/06/30/nginx/ngxin%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
+      <a href="/2021/07/21/python%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            nginx使用
+            python学习第二课：函数/类/模块
           
         </div>
       </a>
     
     
-      <a href="/2021/06/25/gitalk%E6%90%AD%E5%BB%BA%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" class="article-nav-link">
+      <a href="/2021/07/09/echarts%E7%88%B6%E5%85%83%E7%B4%A0%E5%AE%BD%E5%BA%A6%E5%8F%98%E5%8C%96%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">gitalk搭建评论系统</div>
+        <div class="article-nav-title">echarts随父元素宽度变化渲染</div>
       </a>
     
   </nav>

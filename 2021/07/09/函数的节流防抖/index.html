@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>hexo使用技巧以及发现的问题总结 |  forever-chen</title>
+      <title>js函数中的节流防抖以及使用 |  forever-chen</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -53,7 +53,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-hexo使用中发现的问题，及时更新中……"
+  id="post-函数的节流防抖"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -64,7 +64,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  hexo使用技巧以及发现的问题总结
+  js函数中的节流防抖以及使用
 </h1>
  
 
@@ -72,11 +72,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/" class="article-date">
-  <time datetime="2021-06-25T02:50:58.965Z" itemprop="datePublished">2021-06-25</time>
+      <a href="/2021/07/09/%E5%87%BD%E6%95%B0%E7%9A%84%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" class="article-date">
+  <time datetime="2021-07-09T07:44:54.782Z" itemprop="datePublished">2021-07-09</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
   </div>
   
 <div class="word_count">
@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">91</span>
+            <span class="post-count">496</span>
         </span>
     </span>
 
@@ -93,7 +93,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -108,10 +108,16 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h5 id="执行hexo-deploy部署代码时没有把新代码提交上去"><a href="#执行hexo-deploy部署代码时没有把新代码提交上去" class="headerlink" title="执行hexo deploy部署代码时没有把新代码提交上去"></a>执行hexo deploy部署代码时没有把新代码提交上去</h5><p><img src="../images/hexo1.png" alt="未成功"></p>
-<ul>
-<li>解决办法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">先执行 hexo clean  </span><br><span class="line">然后再执行hexo generate </span><br><span class="line">最后执行 hexo deploy</span><br><span class="line">如果嫌麻烦的话，可以再package.json中添加命令  &quot;deploy&quot;: &quot;hexo clean&amp;hexo generate&amp;hexo deploy&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="在vscode中编写markdown文件可以用插件-Markdown-Preview-Enhanced查看效果"><a href="#在vscode中编写markdown文件可以用插件-Markdown-Preview-Enhanced查看效果" class="headerlink" title="在vscode中编写markdown文件可以用插件 Markdown Preview Enhanced查看效果"></a>在vscode中编写markdown文件可以用插件 <code>Markdown Preview Enhanced</code>查看效果</h4></li>
+  <h2 id="js函数中的节流防抖以及使用"><a href="#js函数中的节流防抖以及使用" class="headerlink" title="js函数中的节流防抖以及使用"></a>js函数中的节流防抖以及使用</h2><h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><h5 id="概念：-通俗点说就是在一定时间内，限制一个动作只执行一次"><a href="#概念：-通俗点说就是在一定时间内，限制一个动作只执行一次" class="headerlink" title="概念： 通俗点说就是在一定时间内，限制一个动作只执行一次"></a>概念： 通俗点说就是在一定时间内，限制一个动作只执行一次</h5><h5 id="为什么要使用节流"><a href="#为什么要使用节流" class="headerlink" title="为什么要使用节流"></a>为什么要使用节流</h5><ul>
+<li>在前端开发中，有一些需要频繁触发的函数比如onresize,scroll,mousemove,moverover等，如果不加限制的话1秒内可能会触发几百次</li>
+<li>还有搜索框ajax请求，多次的请求会造成数据的混乱以及网络阻塞，占用服务器宽带，增加服务器压力<h5 id="节流方案"><a href="#节流方案" class="headerlink" title="节流方案"></a>节流方案</h5></li>
+<li>第一种：时间戳节流<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 时间戳方案</span><br><span class="line">function throttle(fn,wait)&#123;</span><br><span class="line">    var pre = Date.now();   </span><br><span class="line">    return function()&#123;</span><br><span class="line">        var context = this;</span><br><span class="line">        var args = arguments;</span><br><span class="line">        var now = Date.now();</span><br><span class="line">        if( now - pre &gt;= wait)&#123;</span><br><span class="line">            fn.apply(context,args);</span><br><span class="line">            pre = Date.now();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handle()&#123;</span><br><span class="line">    console.log(Math.random());</span><br><span class="line">&#125;</span><br><span class="line">window.addEventListener(&quot;mousemove&quot;,throttle(handle,1000));</span><br><span class="line">// 事件初始化会定义pre的值，一般函数（mousemove）执行的时候立马就会执行一次，然后wait毫秒之后会执行第二次</span><br></pre></td></tr></table></figure></li>
+<li>第二种：定时器节流<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 定时器方案</span><br><span class="line">function throttle(fn,wait)&#123;</span><br><span class="line">    var timer = null;</span><br><span class="line">    return function()&#123;</span><br><span class="line">        var context = this;</span><br><span class="line">        var args = arguments;</span><br><span class="line">        if(!timer)&#123;</span><br><span class="line">            timer = seTimeout(function()&#123;</span><br><span class="line">                fn.apply(context,args);</span><br><span class="line">                timer = null;</span><br><span class="line">            &#125;,wait)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function handle()&#123;</span><br><span class="line">    console.log(Math.random());</span><br><span class="line">&#125;</span><br><span class="line">window.addEventListener(&quot;mousemove&quot;,throttle(handle,1000));</span><br><span class="line">// 第一次触发之后等待wait毫秒之后才会执行fn</span><br></pre></td></tr></table></figure>
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><h4 id="概念：在给定的时间过后，或者连续事件完全触发完成之后，仅调用一次"><a href="#概念：在给定的时间过后，或者连续事件完全触发完成之后，仅调用一次" class="headerlink" title="概念：在给定的时间过后，或者连续事件完全触发完成之后，仅调用一次"></a>概念：在给定的时间过后，或者连续事件完全触发完成之后，仅调用一次</h4><h4 id="第一种防抖-非立即执行版"><a href="#第一种防抖-非立即执行版" class="headerlink" title="第一种防抖:非立即执行版"></a>第一种防抖:非立即执行版</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function debounce(func,wait)&#123;</span><br><span class="line">    let timeer</span><br><span class="line">    return function()&#123;</span><br><span class="line">        let context = this</span><br><span class="line">        let args = arguments</span><br><span class="line">        if(timer) clearTimeout(timer)</span><br><span class="line">        timer = setTimeout(()=&gt;&#123;</span><br><span class="line">            func.apply(context,args)</span><br><span class="line">        &#125;,wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 事件完成wait毫秒之后才会执行func</span><br></pre></td></tr></table></figure>
+<h4 id="第二种：立即执行版"><a href="#第二种：立即执行版" class="headerlink" title="第二种：立即执行版"></a>第二种：立即执行版</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function debounce(func,wait)&#123;</span><br><span class="line">    let timeer</span><br><span class="line">    return function()&#123;</span><br><span class="line">        let context = this</span><br><span class="line">        let args = arguments</span><br><span class="line">        if(timer) clearTimeout(timer)</span><br><span class="line">        timer = setTimeout(()=&gt;&#123;</span><br><span class="line">            timer = null</span><br><span class="line">        &#125;,wait)</span><br><span class="line">        let callNow = !timer</span><br><span class="line">        if(callNow)&#123;</span><br><span class="line">            func.apply(context,args)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 事件完成wait毫秒之后立即执行</span><br></pre></td></tr></table></figure>
+<h2 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h2></li>
+<li>setTimeout的最短时间是4ms</li>
+<li>setInterval的最短时间是10ms</li>
 </ul>
  
       <!-- reward -->
@@ -177,12 +183,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/06/25/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E4%B8%AD%E2%80%A6%E2%80%A6/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/07/09/%E5%87%BD%E6%95%B0%E7%9A%84%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
 
     </footer>
   </div>
@@ -190,19 +196,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/06/30/nginx/ngxin%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
+      <a href="/2021/07/09/echarts%E7%88%B6%E5%85%83%E7%B4%A0%E5%AE%BD%E5%BA%A6%E5%8F%98%E5%8C%96%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            nginx使用
+            echarts随父元素宽度变化渲染
           
         </div>
       </a>
     
     
-      <a href="/2021/06/25/gitalk%E6%90%AD%E5%BB%BA%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" class="article-nav-link">
+      <a href="/2021/06/30/nginx/ngxin%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">gitalk搭建评论系统</div>
+        <div class="article-nav-title">nginx使用</div>
       </a>
     
   </nav>
