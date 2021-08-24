@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-24T01:03:11.116Z</updated>
+  <updated>2021-08-24T01:29:03.572Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,114 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>chrome阅读页面插件</title>
+    <link href="http://example.com/2021/08/24/chrome%E9%98%85%E8%AF%BB%E6%8F%92%E4%BB%B6/"/>
+    <id>http://example.com/2021/08/24/chrome%E9%98%85%E8%AF%BB%E6%8F%92%E4%BB%B6/</id>
+    <published>2021-08-24T01:20:47.832Z</published>
+    <updated>2021-08-24T01:29:03.572Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;网页阅读插件&quot;&gt;&lt;a href=&quot;#网页阅读插件&quot; class=&quot;headerlink&quot; title=&quot;网页阅读插件&quot;&gt;&lt;/a&gt;网页阅读插件&lt;/h2&gt;&lt;h3 id=&quot;使用方式&quot;&gt;&lt;a href=&quot;#使用方式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="chrome" scheme="http://example.com/categories/chrome/"/>
+    
+    
+    <category term="js" scheme="http://example.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js函数中的节流防抖以及使用</title>
+    <link href="http://example.com/2021/08/18/umi%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E8%AF%BE/"/>
+    <id>http://example.com/2021/08/18/umi%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E8%AF%BE/</id>
+    <published>2021-08-18T06:51:04.741Z</published>
+    <updated>2021-08-18T10:02:27.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;umi&quot;&gt;&lt;a href=&quot;#umi&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="框架" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="js" scheme="http://example.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微前端引发的知识盲区</title>
+    <link href="http://example.com/2021/08/17/%E5%BE%AE%E5%89%8D%E7%AB%AF/%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://example.com/2021/08/17/%E5%BE%AE%E5%89%8D%E7%AB%AF/%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2021-08-17T02:49:16.843Z</published>
+    <updated>2021-08-17T08:02:35.347Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;h4 id=&quot;es6的proxy无法通过ployfill方式进行弥补，导致qiankun1无法兼容ie浏览器&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="微前端" scheme="http://example.com/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="js" scheme="http://example.com/tags/js/"/>
+    
+    <category term="node" scheme="http://example.com/tags/node/"/>
+    
+    <category term="架构" scheme="http://example.com/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>html转word</title>
+    <link href="http://example.com/2021/08/17/html%E8%BD%ACword/"/>
+    <id>http://example.com/2021/08/17/html%E8%BD%ACword/</id>
+    <published>2021-08-17T01:45:51.189Z</published>
+    <updated>2021-08-17T01:54:58.014Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;html转word&quot;&gt;&lt;a href=&quot;#html转word&quot; class=&quot;headerlink&quot; title=&quot;html转word&quot;&gt;&lt;/a&gt;html转word&lt;/h2&gt;&lt;h3 id=&quot;功能梳理&quot;&gt;&lt;a href=&quot;#功能梳理&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="js" scheme="http://example.com/tags/js/"/>
+    
+    <category term="node" scheme="http://example.com/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>python学习第二课：文件管理</title>

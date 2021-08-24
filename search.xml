@@ -340,4 +340,90 @@
         <tag>python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>chrome阅读页面插件</title>
+    <url>/2021/08/24/chrome%E9%98%85%E8%AF%BB%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="网页阅读插件"><a href="#网页阅读插件" class="headerlink" title="网页阅读插件"></a>网页阅读插件</h2><h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><ul>
+<li>打开chorme浏览器扩展程序</li>
+<li>右上角开启开发者模式</li>
+<li><a href="../images/voice.zip">下载此插件</a>并解压此文件</li>
+<li>扩展程序中打包扩展程序，选中此文件，然后打包扩展程序即可</li>
+</ul>
+]]></content>
+      <categories>
+        <category>chrome</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html转word</title>
+    <url>/2021/08/17/html%E8%BD%ACword/</url>
+    <content><![CDATA[<h2 id="html转word"><a href="#html转word" class="headerlink" title="html转word"></a>html转word</h2><h3 id="功能梳理"><a href="#功能梳理" class="headerlink" title="功能梳理"></a>功能梳理</h3><ul>
+<li>前端把html页面转换为word文档</li>
+<li>把word中页眉，页脚，转换为对应的html标签</li>
+<li>生成目录</li>
+<li>首页增加封面，与其它页面不同</li>
+<li>具体文档转<a href="https://www.npmjs.com/package/html-docx">html转word</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js函数中的节流防抖以及使用</title>
+    <url>/2021/08/18/umi%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E8%AF%BE/</url>
+    <content><![CDATA[<h2 id="umi"><a href="#umi" class="headerlink" title="umi"></a>umi</h2><ul>
+<li>umi是dva开发者便携的一个新的react开发框架</li>
+<li>是一个类next.js的高性能框架</li>
+<li>文件即路由，pages文件夹下新建文件，umi就会生成对应的路由</li>
+<li>mock中的js文件被解析为mock文件</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微前端引发的知识盲区</title>
+    <url>/2021/08/17/%E5%BE%AE%E5%89%8D%E7%AB%AF/%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h4 id="es6的proxy无法通过ployfill方式进行弥补，导致qiankun1无法兼容ie浏览器"><a href="#es6的proxy无法通过ployfill方式进行弥补，导致qiankun1无法兼容ie浏览器" class="headerlink" title="es6的proxy无法通过ployfill方式进行弥补，导致qiankun1无法兼容ie浏览器"></a>es6的proxy无法通过ployfill方式进行弥补，导致qiankun1无法兼容ie浏览器</h4><ul>
+<li>ployfill到底可以做那些事情，为什么做不到proxy</li>
+<li>vue2.x版本用的也是ployfill，为什么可以支持ie浏览器<h4 id="基于shadow-DOM进行样式隔离"><a href="#基于shadow-DOM进行样式隔离" class="headerlink" title="基于shadow DOM进行样式隔离"></a>基于shadow DOM进行样式隔离</h4></li>
+<li>在qiankun1.x版本中通过增加制定前端进行样式隔离</li>
+<li>乾坤2.0利用原生组件远离来实现</li>
+<li>shadow DOM引发的问题：一些组件可能越过shadow boundary到外部的document tree插入节点，这部分节点的样式就会丢失，通过ConfigProvider.getPopContainer来指定挂载的节点<h4 id="微前端适用场景"><a href="#微前端适用场景" class="headerlink" title="微前端适用场景"></a>微前端适用场景</h4></li>
+<li>可以用在对时间跨度比较长的项目的技术升级以及改造</li>
+<li>项目比较大，团队人员技术不一样<h4 id="why-not-iframe"><a href="#why-not-iframe" class="headerlink" title="why not iframe"></a>why not iframe</h4></li>
+<li>iframe最大的特性就是提供了浏览器原生的硬隔离方案，无论是样式还是js隔离都可以完美解决，正因为它的天生隔离，导致应用间上下文无法共享</li>
+<li>url不同步，浏览器刷新，iframe中url丢失，后退按钮无法使用</li>
+<li>自应用中的弹窗居中显示问题</li>
+<li>全局上下文完全隔离，内存变量不共享，iframe内外系统的通信，数据同步</li>
+<li>每一次子应用进入都是一次浏览器上下文重建，资源重新加载<h4 id="阿里最流行的库"><a href="#阿里最流行的库" class="headerlink" title="阿里最流行的库"></a>阿里最流行的库</h4></li>
+<li>ant design</li>
+<li>umi</li>
+<li>dumi</li>
+<li>qiankun</li>
+<li>ahooks</li>
+</ul>
+]]></content>
+      <categories>
+        <category>微前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>node</tag>
+        <tag>架构</tag>
+      </tags>
+  </entry>
 </search>
